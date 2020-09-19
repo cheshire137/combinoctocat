@@ -1,9 +1,9 @@
 package models
 
 type Body struct {
-	Color *Color
+	Colors []*Color
 }
 
-func NewBody(color *Color) *Body {
-	return &Body{Color: color}
+func NewBody(colors ...*Color) *Body {
+	return &Body{Colors: colors}
 }
