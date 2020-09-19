@@ -14,12 +14,12 @@ func ParseOptions() (*Options, error) {
 	flag.StringVar(&inputPath, "in", "",
 		"Path to input HTML for myOctocat page source")
 
+	flag.Parse()
+
 	if len(inputPath) < 1 {
 		flag.Usage()
 		return nil, errors.New("No input path given")
 	}
-
-	flag.Parse()
 
 	return &Options{InputPath: inputPath}, nil
 }
