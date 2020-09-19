@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/cheshire137/combinoctocat/pkg/models"
+	"golang.org/x/net/html"
 )
 
 func main() {
@@ -24,7 +25,7 @@ func main() {
 	}
 
 	reader := bufio.NewReader(f)
-	parser, err := models.ParseHtml(reader)
+	node, err := html.Parse(reader)
 	if err != nil {
 		fmt.Println("Could not parse HTML: " + err.Error())
 		os.Exit(1)
