@@ -5,14 +5,14 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/cheshire137/combinoctocat/pkg/models"
+	"github.com/cheshire137/combinoctocat/pkg/options"
+	"github.com/cheshire137/combinoctocat/pkg/parse"
 	"golang.org/x/net/html"
 )
 
 func main() {
-	options := models.ParseOptions()
-	if len(options.InputPath) < 1 {
-		models.DisplayOptions()
+	options, err := options.ParseOptions()
+	if err != nil {
 		os.Exit(1)
 		return
 	}
@@ -32,28 +32,28 @@ func main() {
 		return
 	}
 
-	bodyColorNode := models.GetElementById(node, "body-color")
+	bodyColorNode := parse.GetElementById(node, "body-color")
 
-	eyeStyleNode := models.GetElementById(node, "cp-eyes")
-	eyeColorNode := models.GetElementById(node, "eye-color")
+	eyeStyleNode := parse.GetElementById(node, "cp-eyes")
+	eyeColorNode := parse.GetElementById(node, "eye-color")
 
-	faceColorNode := models.GetElementById(node, "face-color")
+	faceColorNode := parse.GetElementById(node, "face-color")
 
-	hairStyleNode := models.GetElementById(node, "cp-hair")
-	hairColorNode := models.GetElementById(node, "hair-color")
+	hairStyleNode := parse.GetElementById(node, "cp-hair")
+	hairColorNode := parse.GetElementById(node, "hair-color")
 
-	headgearNode := models.GetElementById(node, "cp-headgear")
+	headgearNode := parse.GetElementById(node, "cp-headgear")
 
-	topNode := models.GetElementById(node, "cp-tops")
+	topNode := parse.GetElementById(node, "cp-tops")
 
-	bottomNode := models.GetElementById(node, "cp-bottoms")
+	bottomNode := parse.GetElementById(node, "cp-bottoms")
 
-	footwearNode := models.GetElementById(node, "cp-footwear")
+	footwearNode := parse.GetElementById(node, "cp-footwear")
 
-	eyewearNode := models.GetElementById(node, "cp-eyewear")
+	eyewearNode := parse.GetElementById(node, "cp-eyewear")
 
-	propNode := models.GetElementById(node, "cp-props")
+	propNode := parse.GetElementById(node, "cp-props")
 
-	facialHairStyleNode := models.GetElementById(node, "cp-faceHair")
-	facialHairColorNode := models.GetElementById(node, "facehair-color")
+	facialHairStyleNode := parse.GetElementById(node, "cp-faceHair")
+	facialHairColorNode := parse.GetElementById(node, "facehair-color")
 }

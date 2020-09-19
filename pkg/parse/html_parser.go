@@ -1,4 +1,4 @@
-package models
+package parse
 
 import "golang.org/x/net/html"
 
