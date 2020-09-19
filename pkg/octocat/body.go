@@ -1,4 +1,4 @@
-package models
+package octocat
 
 type Body struct {
 	Colors []*Color

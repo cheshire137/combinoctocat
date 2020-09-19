@@ -1,4 +1,4 @@
-package models
+package octocat
 
 type Eyewear struct {
 	Style string

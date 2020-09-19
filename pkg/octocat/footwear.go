@@ -1,4 +1,4 @@
-package models
+package octocat
 
 type Footwear struct {
 	Style string

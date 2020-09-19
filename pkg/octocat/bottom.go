@@ -1,4 +1,4 @@
-package models
+package octocat
 
 type Bottom struct {
 	Style string

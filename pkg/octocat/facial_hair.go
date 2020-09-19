@@ -1,4 +1,4 @@
-package models
+package octocat
 
 type FacialHair struct {
 	Color *Color

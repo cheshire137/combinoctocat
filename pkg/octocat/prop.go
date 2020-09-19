@@ -1,4 +1,4 @@
-package models
+package octocat
 
 type Prop struct {
 	Style string
