@@ -12,7 +12,7 @@ import (
 func main() {
 	options := models.ParseOptions()
 	if len(options.InputPath) < 1 {
-		fmt.Println("No HTML input path given")
+		models.DisplayOptions()
 		os.Exit(1)
 		return
 	}

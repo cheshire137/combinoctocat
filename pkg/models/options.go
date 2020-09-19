@@ -15,3 +15,7 @@ func ParseOptions() *Options {
 
 	return &Options{InputPath: inputPath}
 }
+
+func DisplayOptions() {
+	flag.Usage()
+}
