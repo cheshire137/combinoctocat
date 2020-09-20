@@ -68,17 +68,8 @@ Octocat face choices (24):
 
 279 Octocat facial hair choices
 
-Octocat headgear choices (36):
-Hockey helmet, Aussie, Dashiki, Kimono, French hat, Panda head, Lederhosen Hat, Dirndl Flower Crown, Bucket hat, Astronaut Helmet, Sombrero, Chullo, Headphones, Bow, Bandana, Sweatband, Crown, Superhero Crown, Wizard Hat, Snapback, Dad cap, Newsie Cap, Fedora, Jester Hat, Snowboard Helmet, Cowboy Hat, Viking Helmet, Cyclist Helmet, PJ Cap, Firefighter Hard Hat, Bunny suit, Armor Helmet, Hijab, Turban, Head Wrap, scubahead
-
-Octocat eyewear choices (15):
-Scuba Goggles, Oculus Rift, MardiGra Mask, Glasses Round, Glasses Tortoise Shell, Glasses Bifocals, Monocle, Eyepatch, Sports Paint, Sunglasses Heart Shaped, Sunglasses Ray Bans, Sunglasses Alien Eyes, Sunglasses Aviators, Sunglasses Circular, Sunglasses Sporty
-
 Octocat mouth choices (18):
 Neutral, Canines, Underbite, LipstickSmile, Goofy, Happy Closed, Happy Open, Sad, Confused, Excited Open, Excited Closed, Express, Chillin, Angry, Heart Eyes, Starstruck, Zany, Winking
-
-Octocat top choices (49):
-French top, Panda suit, Sari, Kimono, Dashiki, Aussie, Chinese Dress, Hockey Jersey, Lederhosen, Dirndl, Football Jersey, Kraftwerk Shirt, Tracksuit, Astronaut, T shirt, Button Up, Dress, Poncho, Retro Dress, cowboyvest, hippieshirt, businesssuit, ski-jacket, cyclistshirt, pjs-shirt, Superherotights, firefighter-jacket, wizard-robe, scuba-wetsuit, dancertights, bunny-suit, armorsuit, tunic, zipuphoodie, buttondownlongshirt, buttondownshortshirt, sportsjersey, githubpride-shirts, tanktop, labcoat, leatherjacket, flannelshirt, minidress, mididress, maxidress, hawaiianshirt, croptopblouse, barbarianvest, overalls
 
 Octocat prop choices (37):
 Baguette, Panda, Hockey Stick, Football, Githawk, Semmle, Kimono, Aussie, Club Mate Bottle, Currywurst, Doner Kebap, Sponsor Heart, Black Hole, Lasso, Laptop, Tea Cup Mug, Smartphone, Snowboard, Newspaper, Kryptonite, Wizard Wand, Treasure, Sword, Ruby Gem, Microphone, Paintbrush, FishingRod, Game Controller, Prosthetic Hand, Books, Skateboard, Soccer Ball, Magnifying Glass, Beachball, Ship It Squirrel, Guitar, Boba Cup
@@ -86,9 +77,5 @@ Baguette, Panda, Hockey Stick, Football, Githawk, Semmle, Kimono, Aussie, Club M
 Octocat accessory choices (18):
 Freckles, Scarf, Cowboy Buckle Belt, Dress Buckle Belt, Bow Tie, Bolo Tie, Ties Oxford, Messenger Bag, Cape, Camera, Jewlery Gold Chain, Pearls, Watch, Bracelet, Earrings, Nose Ring, Eyebrow Ring, Tattoo
 
-Octocat bottom choices (32):
-French bottoms, Panda bottoms, Hockey bottoms, Lederhosen, Dirndl, German Football Shorts, Kraftwerk Pants, Adidas Tracksuit, Astronaut pants, Yoga pants, Shorts, Jeans, Ripped Jeans, Cuffed Jeans, Bell Bottoms, Suit Pants, Mini Skirt, Midi Skirt, Maxi Skirt, Snow Pants, Cyclist Shorts, PJ Pants, Superhero Tights, Firefighter Pants, Scuba Pants, Dancer Tights, Bunny Suit, Armor Suit, Swim Trunks, Overalls, Kilt, Soccer Shorts
-
-Octocat footwear choices (30):
-French shoes, Panda shoes, Kimono, Hockey, Lederhosen, Dirndl, Cleats, Kraftwerk Shoes, Tracksuit, Astronaut, cowboyboots, platformshoes, highheels, mendressshoes, snow-boots, cyclistshoes, pj-slippers, superheroboots, firefighter-boots, wizard-sandals, scuba-flippers, balletshoes, bunnysuit, armorsuit-boots, combatboots, clogs, cleats, hightopsneakers, athleticshoes, converseshoes
+30,280,800 outfit choices (50 tops, 33 bottoms, 37 headgears, 16 eyewears, 31 footgears)
 ```

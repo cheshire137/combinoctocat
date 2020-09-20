@@ -1,6 +1,9 @@
 package octocat
 
-import "strings"
+import (
+	"math/rand"
+	"strings"
+)
 
 type Outfit struct {
 	Top      *Top
@@ -38,4 +41,14 @@ func (o *Outfit) String() string {
 		parts = append(parts, o.Eyewear.String())
 	}
 	return strings.Join(parts, " / ")
+}
+
+func GenerateOutfit(topChoices []*Top, bottomChoices []*Bottom, footwearChoices []*Footwear, headgearChoices []*Headgear, eyewearChoices []*Eyewear) *Outfit {
+	topIndex := rand.Intn(len(topChoices))
+	bottomIndex := rand.Intn(len(bottomChoices))
+	footwearIndex := rand.Intn(len(footwearChoices))
+	headgearIndex := rand.Intn(len(headgearChoices))
+	eyewearIndex := rand.Intn(len(eyewearChoices))
+	return NewOutfit(topChoices[topIndex], bottomChoices[bottomIndex], footwearChoices[footwearIndex],
+		headgearChoices[headgearIndex], eyewearChoices[eyewearIndex])
 }

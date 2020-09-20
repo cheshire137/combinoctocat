@@ -3,7 +3,9 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"math/rand"
 	"os"
+	"time"
 
 	"github.com/cheshire137/combinoctocat/pkg/octocat"
 	"github.com/cheshire137/combinoctocat/pkg/options"
@@ -14,6 +16,8 @@ import (
 )
 
 func main() {
+	rand.Seed(time.Now().UnixNano())
+
 	options, err := options.ParseOptions()
 	if err != nil {
 		os.Exit(1)
@@ -104,25 +108,7 @@ func main() {
 		}
 	}
 
-	outfits := []*octocat.Outfit{}
-	for _, top := range topChoices {
-		for _, bottom := range bottomChoices {
-			for _, footwear := range footwearChoices {
-				for _, headgear := range headgearChoices {
-					for _, eyewear := range eyewearChoices {
-						outfit := &octocat.Outfit{
-							Top:      top,
-							Bottom:   bottom,
-							Footwear: footwear,
-							Headgear: headgear,
-							Eyewear:  eyewear,
-						}
-						outfits = append(outfits, outfit)
-					}
-				}
-			}
-		}
-	}
+	totalPossibleOutfits := len(topChoices) * len(bottomChoices) * len(footwearChoices) * len(headgearChoices) * len(eyewearChoices)
 
 	// octocats := []*octocat.Octocat{}
 	// for _, body := range bodyChoices {
@@ -168,7 +154,7 @@ func main() {
 
 	fmt.Print("\n")
 	printer := message.NewPrinter(message.MatchLanguage("en"))
-	printer.Print(len(outfits))
+	printer.Print(totalPossibleOutfits)
 	fmt.Printf(" outfit choices (%d tops, %d bottoms, %d headgears, %d eyewears, %d footgears)\n",
 		len(topChoices), len(bottomChoices), len(headgearChoices), len(eyewearChoices), len(footwearChoices))
 }
