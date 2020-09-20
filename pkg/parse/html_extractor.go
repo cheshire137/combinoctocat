@@ -19,6 +19,10 @@ func ExtractEyeColors(rootNode *html.Node) []*octocat.Color {
 	return extractSingleColorFromChildNodes(rootNode)
 }
 
+func ExtractEyeStyles(rootNode *html.Node) []string {
+	return extractImgAlts(rootNode)
+}
+
 func ExtractFaces(rootNode *html.Node) []*octocat.Face {
 	faceNodes := GetElementsByClass(rootNode, "color-swatch")
 	faces := make([]*octocat.Face, len(faceNodes))
