@@ -15,6 +15,18 @@ func ExtractBodies(node *html.Node) []*octocat.Body {
 	return bodies
 }
 
+func ExtractEyeColors(node *html.Node) []*octocat.Color {
+	eyeColorNodes := GetElementsByClass(node, "color-swatch")
+	colors := make([]*octocat.Color, len(eyeColorNodes))
+	for i, node := range eyeColorNodes {
+		color1, ok := GetAttribute(node, "data-color")
+		if ok {
+			colors[i] = octocat.NewColor(color1)
+		}
+	}
+	return colors
+}
+
 func ExtractColorsFromNode(node *html.Node) []*octocat.Color {
 	colors := []*octocat.Color{}
 

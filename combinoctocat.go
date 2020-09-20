@@ -34,14 +34,28 @@ func main() {
 
 	bodyColorNode := parse.GetElementById(node, "body-color")
 	bodyChoices := parse.ExtractBodies(bodyColorNode)
+	totalBodyChoices := len(bodyChoices)
 
-	fmt.Println("Octocat body choices:")
+	// eyeStyleNode := parse.GetElementById(node, "cp-eyes")
+	eyeColorNode := parse.GetElementById(node, "eye-color")
+	eyeColorChoices := parse.ExtractEyeColors(eyeColorNode)
+	totalEyeColorChoices := len(eyeColorChoices)
+
+	fmt.Printf("Octocat body choices (%d):\n", totalBodyChoices)
 	for _, body := range bodyChoices {
 		fmt.Println("- " + body.String())
 	}
 
-	// eyeStyleNode := parse.GetElementById(node, "cp-eyes")
-	// eyeColorNode := parse.GetElementById(node, "eye-color")
+	fmt.Printf("Octocat eye color choices (%d):\n", totalEyeColorChoices)
+	lastEyeColorIndex := totalEyeColorChoices - 1
+	for i, color := range eyeColorChoices {
+		fmt.Print(color.String())
+		if i < lastEyeColorIndex {
+			fmt.Print(", ")
+		} else {
+			fmt.Println()
+		}
+	}
 
 	// faceColorNode := parse.GetElementById(node, "face-color")
 
