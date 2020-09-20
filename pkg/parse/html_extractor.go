@@ -27,10 +27,11 @@ func ExtractEyeStyles(rootNode *html.Node) []string {
 
 func ExtractEyewears(rootNode *html.Node) []*octocat.Eyewear {
 	styles := extractImgAlts(rootNode)
-	eyeWears := make([]*octocat.Eyewear, len(styles))
+	eyeWears := make([]*octocat.Eyewear, len(styles)+1)
 	for i, style := range styles {
 		eyeWears[i] = octocat.NewEyewear(style)
 	}
+	eyeWears[len(eyeWears)-1] = octocat.NoEyewear()
 	return eyeWears
 }
 
@@ -64,20 +65,22 @@ func ExtractProps(rootNode *html.Node) []*octocat.Prop {
 func ExtractTops(rootNode *html.Node) []*octocat.Top {
 	imgAlts := extractImgAlts(rootNode)
 	imgSrcs := extractImgSrcs(rootNode)
-	tops := make([]*octocat.Top, len(imgAlts))
+	tops := make([]*octocat.Top, len(imgAlts)+1)
 	for i, imgAlt := range imgAlts {
 		style := getNameFromImgAltAndSrc(imgAlt, imgSrcs[i], "tops-")
 		tops[i] = octocat.NewTop(style)
 	}
+	tops[len(tops)-1] = octocat.NoTop()
 	return tops
 }
 
 func ExtractBottoms(rootNode *html.Node) []*octocat.Bottom {
 	imgAlts := extractImgAlts(rootNode)
-	bottoms := make([]*octocat.Bottom, len(imgAlts))
+	bottoms := make([]*octocat.Bottom, len(imgAlts)+1)
 	for i, imgAlt := range imgAlts {
 		bottoms[i] = octocat.NewBottom(imgAlt)
 	}
+	bottoms[len(bottoms)-1] = octocat.NoBottom()
 	return bottoms
 }
 
@@ -125,21 +128,23 @@ func ExtractHairStyles(rootNode *html.Node) []string {
 
 func ExtractHeadgears(rootNode *html.Node) []*octocat.Headgear {
 	styles := extractImgAlts(rootNode)
-	headgears := make([]*octocat.Headgear, len(styles))
+	headgears := make([]*octocat.Headgear, len(styles)+1)
 	for i, style := range styles {
 		headgears[i] = octocat.NewHeadgear(style)
 	}
+	headgears[len(headgears)-1] = octocat.NoHeadgear()
 	return headgears
 }
 
 func ExtractFootwears(rootNode *html.Node) []*octocat.Footwear {
 	imgAlts := extractImgAlts(rootNode)
 	imgSrcs := extractImgSrcs(rootNode)
-	footwears := make([]*octocat.Footwear, len(imgAlts))
+	footwears := make([]*octocat.Footwear, len(imgAlts)+1)
 	for i, imgAlt := range imgAlts {
 		style := getNameFromImgAltAndSrc(imgAlt, imgSrcs[i], "footwear-")
 		footwears[i] = octocat.NewFootwear(style)
 	}
+	footwears[len(footwears)-1] = octocat.NoFootwear()
 	return footwears
 }
 

@@ -14,10 +14,10 @@ func NewHair(color *Color, style string) *Hair {
 func (h *Hair) String() string {
 	var sb strings.Builder
 	sb.WriteString("Hair: ")
-	if h.Color != nil {
-		sb.WriteString(h.Color.String())
-		sb.WriteString(" / ")
-	}
 	sb.WriteString(h.Style)
+	if h.Color != nil {
+		sb.WriteString(" / ")
+		sb.WriteString(h.Color.String())
+	}
 	return sb.String()
 }

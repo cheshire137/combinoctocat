@@ -10,6 +10,7 @@ import (
 	"github.com/cheshire137/combinoctocat/pkg/parse"
 	"github.com/cheshire137/combinoctocat/pkg/utils"
 	"golang.org/x/net/html"
+	"golang.org/x/text/message"
 )
 
 func main() {
@@ -103,25 +104,35 @@ func main() {
 		}
 	}
 
+	outfits := []*octocat.Outfit{}
+	for _, top := range topChoices {
+		for _, bottom := range bottomChoices {
+			for _, footwear := range footwearChoices {
+				for _, headgear := range headgearChoices {
+					for _, eyewear := range eyewearChoices {
+						outfit := &octocat.Outfit{
+							Top:      top,
+							Bottom:   bottom,
+							Footwear: footwear,
+							Headgear: headgear,
+							Eyewear:  eyewear,
+						}
+						outfits = append(outfits, outfit)
+					}
+				}
+			}
+		}
+	}
+
 	// octocats := []*octocat.Octocat{}
 	// for _, body := range bodyChoices {
-	// 	for _, top := range topChoices {
-	// 		for _, bottom := range bottomChoices {
-	// 			for _, prop := range propChoices {
-	// 				for _, eyes := range eyeChoices {
-	// 					for _, facialHair := range facialHairChoices {
-	// 						for _, hair := range hairChoices {
-	// 							for _, mouth := range mouthChoices {
-	// 								for _, face := range faceChoices {
-	// 									for _, footwear := range footwearChoices {
-	// 										for _, headgear := range headgearChoices {
-	// 											for _, eyewear := range eyewearChoices {
-
-	// 											}
-	// 										}
-	// 									}
-	// 								}
-	// 							}
+	// 	for _, prop := range propChoices {
+	// 		for _, eyes := range eyeChoices {
+	// 			for _, facialHair := range facialHairChoices {
+	// 				for _, hair := range hairChoices {
+	// 					for _, mouth := range mouthChoices {
+	// 						for _, face := range faceChoices {
+	// 							octocat := octocat.NewOctocat(body, face, eyes, mouth)
 	// 						}
 	// 					}
 	// 				}
@@ -146,17 +157,8 @@ func main() {
 
 	fmt.Printf("\n%d Octocat facial hair choices\n", len(facialHairChoices))
 
-	fmt.Printf("\nOctocat headgear choices (%d):\n", len(headgearChoices))
-	utils.PrintHeadgearList(headgearChoices)
-
-	fmt.Printf("\nOctocat eyewear choices (%d):\n", len(eyewearChoices))
-	utils.PrintEyewearList(eyewearChoices)
-
 	fmt.Printf("\nOctocat mouth choices (%d):\n", len(mouthChoices))
 	utils.PrintMouthList(mouthChoices)
-
-	fmt.Printf("\nOctocat top choices (%d):\n", len(topChoices))
-	utils.PrintTopList(topChoices)
 
 	fmt.Printf("\nOctocat prop choices (%d):\n", len(propChoices))
 	utils.PrintPropList(propChoices)
@@ -164,9 +166,9 @@ func main() {
 	fmt.Printf("\nOctocat accessory choices (%d):\n", len(accessoryChoices))
 	utils.PrintAccessoryList(accessoryChoices)
 
-	fmt.Printf("\nOctocat bottom choices (%d):\n", len(bottomChoices))
-	utils.PrintBottomList(bottomChoices)
-
-	fmt.Printf("\nOctocat footwear choices (%d):\n", len(footwearChoices))
-	utils.PrintFootwearList(footwearChoices)
+	fmt.Print("\n")
+	printer := message.NewPrinter(message.MatchLanguage("en"))
+	printer.Print(len(outfits))
+	fmt.Printf(" outfit choices (%d tops, %d bottoms, %d headgears, %d eyewears, %d footgears)\n",
+		len(topChoices), len(bottomChoices), len(headgearChoices), len(eyewearChoices), len(footwearChoices))
 }
