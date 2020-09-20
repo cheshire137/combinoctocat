@@ -83,6 +83,9 @@ French top, Panda suit, Sari, Kimono, Dashiki, Aussie, Chinese Dress, Hockey Jer
 Octocat prop choices (37):
 Baguette, Panda, Hockey Stick, Football, Githawk, Semmle, Kimono, Aussie, Club Mate Bottle, Currywurst, Doner Kebap, Sponsor Heart, Black Hole, Lasso, Laptop, Tea Cup Mug, Smartphone, Snowboard, Newspaper, Kryptonite, Wizard Wand, Treasure, Sword, Ruby Gem, Microphone, Paintbrush, FishingRod, Game Controller, Prosthetic Hand, Books, Skateboard, Soccer Ball, Magnifying Glass, Beachball, Ship It Squirrel, Guitar, Boba Cup
 
+Octocat accessory choices (18):
+Freckles, Scarf, Cowboy Buckle Belt, Dress Buckle Belt, Bow Tie, Bolo Tie, Ties Oxford, Messenger Bag, Cape, Camera, Jewlery Gold Chain, Pearls, Watch, Bracelet, Earrings, Nose Ring, Eyebrow Ring, Tattoo
+
 Octocat bottom choices (32):
 French bottoms, Panda bottoms, Hockey bottoms, Lederhosen, Dirndl, German Football Shorts, Kraftwerk Pants, Adidas Tracksuit, Astronaut pants, Yoga pants, Shorts, Jeans, Ripped Jeans, Cuffed Jeans, Bell Bottoms, Suit Pants, Mini Skirt, Midi Skirt, Maxi Skirt, Snow Pants, Cyclist Shorts, PJ Pants, Superhero Tights, Firefighter Pants, Scuba Pants, Dancer Tights, Bunny Suit, Armor Suit, Swim Trunks, Overalls, Kilt, Soccer Shorts
 

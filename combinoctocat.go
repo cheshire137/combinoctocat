@@ -79,6 +79,9 @@ func main() {
 	propNode := parse.GetElementById(node, "cp-props")
 	propChoices := parse.ExtractProps(propNode)
 
+	accessoriesNode := parse.GetElementById(node, "cp-misc")
+	accessoryChoices := parse.ExtractAccessories(accessoriesNode)
+
 	hairChoices := []*octocat.Hair{}
 	for _, style := range hairStyleChoices {
 		for _, color := range hairColorChoices {
@@ -108,6 +111,17 @@ func main() {
 	// 				for _, eyes := range eyeChoices {
 	// 					for _, facialHair := range facialHairChoices {
 	// 						for _, hair := range hairChoices {
+	// 							for _, mouth := range mouthChoices {
+	// 								for _, face := range faceChoices {
+	// 									for _, footwear := range footwearChoices {
+	// 										for _, headgear := range headgearChoices {
+	// 											for _, eyewear := range eyewearChoices {
+
+	// 											}
+	// 										}
+	// 									}
+	// 								}
+	// 							}
 	// 						}
 	// 					}
 	// 				}
@@ -146,6 +160,9 @@ func main() {
 
 	fmt.Printf("\nOctocat prop choices (%d):\n", len(propChoices))
 	utils.PrintPropList(propChoices)
+
+	fmt.Printf("\nOctocat accessory choices (%d):\n", len(accessoryChoices))
+	utils.PrintAccessoryList(accessoryChoices)
 
 	fmt.Printf("\nOctocat bottom choices (%d):\n", len(bottomChoices))
 	utils.PrintBottomList(bottomChoices)
