@@ -45,6 +45,10 @@ func main() {
 	faceChoices := parse.ExtractFaces(faceNode)
 	totalFaceChoices := len(faceChoices)
 
+	hairColorNode := parse.GetElementById(node, "hair-color")
+	hairColorChoices := parse.ExtractHairColors(hairColorNode)
+	totalHairColorChoices := len(hairColorChoices)
+
 	fmt.Printf("Octocat body choices (%d):\n", totalBodyChoices)
 	for _, body := range bodyChoices {
 		fmt.Println("- " + body.String())
@@ -66,8 +70,18 @@ func main() {
 		fmt.Println("- " + face.String())
 	}
 
+	fmt.Printf("\nOctocat hair color choices (%d):\n", totalHairColorChoices)
+	lastHairColorIndex := totalHairColorChoices - 1
+	for i, color := range hairColorChoices {
+		fmt.Print(color.String())
+		if i < lastHairColorIndex {
+			fmt.Print(", ")
+		} else {
+			fmt.Println()
+		}
+	}
+
 	// hairStyleNode := parse.GetElementById(node, "cp-hair")
-	// hairColorNode := parse.GetElementById(node, "hair-color")
 
 	// headgearNode := parse.GetElementById(node, "cp-headgear")
 
