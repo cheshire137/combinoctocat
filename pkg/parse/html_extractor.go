@@ -36,20 +36,13 @@ func ExtractTops(rootNode *html.Node) []*octocat.Top {
 	return tops
 }
 
-func extractTopStyle(imgAlt string, imgSrc string) string {
-	if len(imgAlt) > 0 {
-		return imgAlt
+func ExtractBottoms(rootNode *html.Node) []*octocat.Bottom {
+	imgAlts := extractImgAlts(rootNode)
+	bottoms := make([]*octocat.Bottom, len(imgAlts))
+	for i, imgAlt := range imgAlts {
+		bottoms[i] = octocat.NewBottom(imgAlt)
 	}
-
-	srcParts := strings.Split(imgSrc, "/")
-	totalSrcParts := len(srcParts)
-	if totalSrcParts > 0 {
-		fileName := srcParts[totalSrcParts-1]
-		fileNameWithoutExtension := strings.TrimSuffix(fileName, ".svg")
-		return strings.TrimPrefix(fileNameWithoutExtension, "tops-")
-	}
-
-	return imgSrc
+	return bottoms
 }
 
 func ExtractFaces(rootNode *html.Node) []*octocat.Face {
@@ -101,6 +94,26 @@ func ExtractHeadgears(rootNode *html.Node) []*octocat.Headgear {
 		headgears[i] = octocat.NewHeadgear(style)
 	}
 	return headgears
+}
+
+func extractTopStyle(imgAlt string, imgSrc string) string {
+	return getNameFromImgAltAndSrc(imgAlt, imgSrc, "tops-")
+}
+
+func getNameFromImgAltAndSrc(imgAlt string, imgSrc string, prefix string) string {
+	if len(imgAlt) > 0 {
+		return imgAlt
+	}
+
+	srcParts := strings.Split(imgSrc, "/")
+	totalSrcParts := len(srcParts)
+	if totalSrcParts > 0 {
+		fileName := srcParts[totalSrcParts-1]
+		fileNameWithoutExtension := strings.TrimSuffix(fileName, ".svg")
+		return strings.TrimPrefix(fileNameWithoutExtension, prefix)
+	}
+
+	return imgSrc
 }
 
 func extractImgAlts(rootNode *html.Node) []string {

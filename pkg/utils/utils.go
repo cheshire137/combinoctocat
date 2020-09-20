@@ -43,6 +43,14 @@ func PrintTopList(tops []*octocat.Top) {
 	PrintCommaSeparatedList(strList)
 }
 
+func PrintBottomList(bottoms []*octocat.Bottom) {
+	strList := make([]string, len(bottoms))
+	for i, bottom := range bottoms {
+		strList[i] = bottom.String()
+	}
+	PrintCommaSeparatedList(strList)
+}
+
 func FindStr(haystack []string, needle string) (int, bool) {
 	for i, item := range haystack {
 		if item == needle {

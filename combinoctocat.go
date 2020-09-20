@@ -64,7 +64,8 @@ func main() {
 	topNode := parse.GetElementById(node, "cp-tops")
 	topChoices := parse.ExtractTops(topNode)
 
-	// bottomNode := parse.GetElementById(node, "cp-bottoms")
+	bottomNode := parse.GetElementById(node, "cp-bottoms")
+	bottomChoices := parse.ExtractBottoms(bottomNode)
 
 	// footwearNode := parse.GetElementById(node, "cp-footwear")
 
@@ -114,4 +115,7 @@ func main() {
 
 	fmt.Printf("\nOctocat top choices (%d):\n", len(topChoices))
 	utils.PrintTopList(topChoices)
+
+	fmt.Printf("\nOctocat bottom choices (%d):\n", len(bottomChoices))
+	utils.PrintBottomList(bottomChoices)
 }
