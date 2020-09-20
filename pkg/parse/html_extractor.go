@@ -54,15 +54,28 @@ func ExtractFacialHairColors(rootNode *html.Node) []*octocat.Color {
 }
 
 func ExtractHairStyles(rootNode *html.Node) []string {
+	return extractImgAlts(rootNode)
+}
+
+func ExtractHeadgears(rootNode *html.Node) []*octocat.Headgear {
+	styles := extractImgAlts(rootNode)
+	headgears := make([]*octocat.Headgear, len(styles))
+	for i, style := range styles {
+		headgears[i] = octocat.NewHeadgear(style)
+	}
+	return headgears
+}
+
+func extractImgAlts(rootNode *html.Node) []string {
 	previewNodes := GetElementsByClass(rootNode, "preview")
-	styles := make([]string, len(previewNodes))
+	imgAltAttributes := make([]string, len(previewNodes))
 	for i, node := range previewNodes {
-		style, ok := GetAttribute(node, "alt")
+		altAttribute, ok := GetAttribute(node, "alt")
 		if ok {
-			styles[i] = style
+			imgAltAttributes[i] = altAttribute
 		}
 	}
-	return styles
+	return imgAltAttributes
 }
 
 func extractSingleColorFromChildNodes(rootNode *html.Node) []*octocat.Color {

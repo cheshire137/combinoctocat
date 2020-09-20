@@ -27,6 +27,14 @@ func PrintColorList(colors []*octocat.Color) {
 	PrintCommaSeparatedList(strList)
 }
 
+func PrintHeadgearList(headgears []*octocat.Headgear) {
+	strList := make([]string, len(headgears))
+	for i, headgear := range headgears {
+		strList[i] = headgear.String()
+	}
+	PrintCommaSeparatedList(strList)
+}
+
 func FindStr(haystack []string, needle string) (int, bool) {
 	for i, item := range haystack {
 		if item == needle {
