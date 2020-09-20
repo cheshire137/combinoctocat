@@ -8,6 +8,5 @@ this after [@jeffrafter](https://github.com/jeffrafter) nerd-sniped me.
 
 I built this using Go version 1.13.4 in macOS.
 
-```sh
-make && bin/combinoctocat -in my-octocat.html
-```
+1. Load [myoctocat.com](https://myoctocat.com/build-your-octocat/) in your browser and save the page as an HTML file.
+1. `make && bin/combinoctocat -in PATH-TO-MYOCTOCAT-PAGE.html`
