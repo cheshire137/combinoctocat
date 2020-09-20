@@ -6,17 +6,25 @@ import (
 	"github.com/cheshire137/combinoctocat/pkg/octocat"
 )
 
-func PrintColorList(colors []*octocat.Color) {
-	lastIndex := len(colors) - 1
+func PrintCommaSeparatedList(list []string) {
+	lastIndex := len(list) - 1
 
-	for i, color := range colors {
-		fmt.Print(color.String())
+	for i, value := range list {
+		fmt.Print(value)
 		if i < lastIndex {
 			fmt.Print(", ")
 		} else {
 			fmt.Println()
 		}
 	}
+}
+
+func PrintColorList(colors []*octocat.Color) {
+	strList := make([]string, len(colors))
+	for i, color := range colors {
+		strList[i] = color.String()
+	}
+	PrintCommaSeparatedList(strList)
 }
 
 func FindStr(haystack []string, needle string) (int, bool) {

@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/cheshire137/combinoctocat/pkg/octocat"
 	"github.com/cheshire137/combinoctocat/pkg/options"
 	"github.com/cheshire137/combinoctocat/pkg/parse"
 	"github.com/cheshire137/combinoctocat/pkg/utils"
@@ -35,45 +36,47 @@ func main() {
 
 	bodyColorNode := parse.GetElementById(node, "body-color")
 	bodyChoices := parse.ExtractBodies(bodyColorNode)
-	totalBodyChoices := len(bodyChoices)
 
 	// eyeStyleNode := parse.GetElementById(node, "cp-eyes")
 	eyeColorNode := parse.GetElementById(node, "eye-color")
 	eyeColorChoices := parse.ExtractEyeColors(eyeColorNode)
-	totalEyeColorChoices := len(eyeColorChoices)
 
 	faceNode := parse.GetElementById(node, "face-color")
 	faceChoices := parse.ExtractFaces(faceNode)
-	totalFaceChoices := len(faceChoices)
+
+	hairStyleNode := parse.GetElementById(node, "cp-hair")
+	hairStyleChoices := parse.ExtractHairStyles(hairStyleNode)
 
 	hairColorNode := parse.GetElementById(node, "hair-color")
 	hairColorChoices := parse.ExtractHairColors(hairColorNode)
-	totalHairColorChoices := len(hairColorChoices)
 
 	facialHairColorNode := parse.GetElementById(node, "facehair-color")
 	facialHairColorChoices := parse.ExtractFacialHairColors(facialHairColorNode)
-	totalFacialHairColorChoices := len(facialHairColorChoices)
 
-	fmt.Printf("Octocat body choices (%d):\n", totalBodyChoices)
+	hairChoices := []*octocat.Hair{}
+	for _, style := range hairStyleChoices {
+		for _, color := range hairColorChoices {
+			hairChoices = append(hairChoices, octocat.NewHair(color, style))
+		}
+	}
+
+	fmt.Printf("Octocat body choices (%d):\n", len(bodyChoices))
 	for _, body := range bodyChoices {
 		fmt.Println("- " + body.String())
 	}
 
-	fmt.Printf("\nOctocat eye color choices (%d):\n", totalEyeColorChoices)
+	fmt.Printf("\nOctocat eye color choices (%d):\n", len(eyeColorChoices))
 	utils.PrintColorList(eyeColorChoices)
 
-	fmt.Printf("\nOctocat face choices (%d):\n", totalFaceChoices)
+	fmt.Printf("\nOctocat face choices (%d):\n", len(faceChoices))
 	for _, face := range faceChoices {
 		fmt.Println("- " + face.String())
 	}
 
-	fmt.Printf("\nOctocat hair color choices (%d):\n", totalHairColorChoices)
-	utils.PrintColorList(hairColorChoices)
+	fmt.Printf("\n%d Octocat hair choices\n", len(hairChoices))
 
-	fmt.Printf("\nOctocat facial hair color choices (%d):\n", totalFacialHairColorChoices)
+	fmt.Printf("\nOctocat facial hair color choices (%d):\n", len(facialHairColorChoices))
 	utils.PrintColorList(facialHairColorChoices)
-
-	// hairStyleNode := parse.GetElementById(node, "cp-hair")
 
 	// headgearNode := parse.GetElementById(node, "cp-headgear")
 

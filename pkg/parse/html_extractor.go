@@ -53,6 +53,18 @@ func ExtractFacialHairColors(rootNode *html.Node) []*octocat.Color {
 	return extractSingleColorFromChildNodes(rootNode)
 }
 
+func ExtractHairStyles(rootNode *html.Node) []string {
+	previewNodes := GetElementsByClass(rootNode, "preview")
+	styles := make([]string, len(previewNodes))
+	for i, node := range previewNodes {
+		style, ok := GetAttribute(node, "alt")
+		if ok {
+			styles[i] = style
+		}
+	}
+	return styles
+}
+
 func extractSingleColorFromChildNodes(rootNode *html.Node) []*octocat.Color {
 	colorNodes := GetElementsByClass(rootNode, "color-swatch")
 	colors := make([]*octocat.Color, len(colorNodes))
