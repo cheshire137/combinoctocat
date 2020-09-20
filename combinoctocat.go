@@ -87,7 +87,7 @@ func main() {
 	accessoriesNode := parse.GetElementById(node, "cp-misc")
 	accessoryChoices := parse.ExtractAccessories(accessoriesNode)
 
-	hairChoices := []*octocat.Hair{}
+	hairChoices := []*octocat.Hair{octocat.NoHair()}
 	for _, style := range hairStyleChoices {
 		for _, color := range hairColorChoices {
 			hairChoices = append(hairChoices, octocat.NewHair(color, style))
@@ -101,7 +101,7 @@ func main() {
 		}
 	}
 
-	facialHairChoices := []*octocat.FacialHair{}
+	facialHairChoices := []*octocat.FacialHair{octocat.NoFacialHair()}
 	for _, style := range facialHairStyleChoices {
 		for _, color := range facialHairColorChoices {
 			facialHairChoices = append(facialHairChoices, octocat.NewFacialHair(color, style))

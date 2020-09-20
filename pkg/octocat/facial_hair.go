@@ -7,17 +7,23 @@ type FacialHair struct {
 	Style string
 }
 
+func NoFacialHair() *FacialHair {
+	return &FacialHair{}
+}
+
 func NewFacialHair(color *Color, style string) *FacialHair {
 	return &FacialHair{Color: color, Style: style}
 }
 
 func (h *FacialHair) String() string {
+	if h.Color == nil || len(h.Style) < 1 {
+		return "no facial hair"
+	}
+
 	var sb strings.Builder
 	sb.WriteString("Facial hair: ")
 	sb.WriteString(h.Style)
-	if h.Color != nil {
-		sb.WriteString(" / ")
-		sb.WriteString(h.Color.String())
-	}
+	sb.WriteString(" / ")
+	sb.WriteString(h.Color.String())
 	return sb.String()
 }
