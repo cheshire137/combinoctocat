@@ -10,7 +10,6 @@ import (
 	"github.com/cheshire137/combinoctocat/pkg/octocat"
 	"github.com/cheshire137/combinoctocat/pkg/options"
 	"github.com/cheshire137/combinoctocat/pkg/parse"
-	"github.com/cheshire137/combinoctocat/pkg/utils"
 	"golang.org/x/net/html"
 	"golang.org/x/text/message"
 )
@@ -87,6 +86,8 @@ func main() {
 	accessoriesNode := parse.GetElementById(node, "cp-misc")
 	accessoryChoices := parse.ExtractAccessories(accessoriesNode)
 
+	accessorySets := octocat.GetAccessorySets(accessoryChoices)
+
 	hairChoices := []*octocat.Hair{octocat.NoHair()}
 	for _, style := range hairStyleChoices {
 		for _, color := range hairColorChoices {
@@ -127,33 +128,30 @@ func main() {
 	// 	}
 	// }
 
-	fmt.Printf("Octocat body choices (%d):\n", len(bodyChoices))
-	for _, body := range bodyChoices {
-		fmt.Println("- " + body.String())
-	}
+	fmt.Println("Octocat customization options:")
 
-	fmt.Printf("\n%d Octocat eye choices\n", len(eyeChoices))
+	fmt.Printf("\n%d body choices\n", len(bodyChoices))
+	fmt.Printf("%d eye choices\n", len(eyeChoices))
+	fmt.Printf("%d face choices\n", len(faceChoices))
 
-	fmt.Printf("\nOctocat face choices (%d):\n", len(faceChoices))
-	for _, face := range faceChoices {
-		fmt.Println("- " + face.String())
-	}
+	fmt.Printf("\n%d hair choices (including none)\n", len(hairChoices))
+	fmt.Printf("- %d colors\n", len(hairColorChoices))
+	fmt.Printf("- %d styles\n", len(hairStyleChoices))
 
-	fmt.Printf("\n%d Octocat hair choices\n", len(hairChoices))
+	fmt.Printf("\n%d Octocat facial hair choices (including none)\n", len(facialHairChoices))
+	fmt.Printf("- %d colors\n", len(facialHairColorChoices))
+	fmt.Printf("- %d styles\n", len(facialHairStyleChoices))
 
-	fmt.Printf("\n%d Octocat facial hair choices\n", len(facialHairChoices))
+	fmt.Printf("\n%d mouth choices\n", len(mouthChoices))
+	fmt.Printf("%d prop choices\n", len(propChoices))
 
-	fmt.Printf("\nOctocat mouth choices (%d):\n", len(mouthChoices))
-	utils.PrintMouthList(mouthChoices)
-
-	fmt.Printf("\nOctocat prop choices (%d):\n", len(propChoices))
-	utils.PrintPropList(propChoices)
-
-	fmt.Printf("\nOctocat accessory choices (%d):\n", len(accessoryChoices))
-	utils.PrintAccessoryList(accessoryChoices)
+	printer := message.NewPrinter(message.MatchLanguage("en"))
 
 	fmt.Print("\n")
-	printer := message.NewPrinter(message.MatchLanguage("en"))
+	printer.Print(len(accessorySets))
+	fmt.Println(" accessory combinations")
+
+	fmt.Print("\n")
 	printer.Print(totalPossibleOutfits)
 	fmt.Printf(" outfit choices (%d tops, %d bottoms, %d headgears, %d eyewears, %d footgears)\n",
 		len(topChoices), len(bottomChoices), len(headgearChoices), len(eyewearChoices), len(footwearChoices))
