@@ -55,11 +55,22 @@ func main() {
 	facialHairColorNode := parse.GetElementById(node, "facehair-color")
 	facialHairColorChoices := parse.ExtractFacialHairColors(facialHairColorNode)
 
+	facialHairStyleNode := parse.GetElementById(node, "cp-faceHair")
+	facialHairStyleChoices := parse.ExtractFacialHairStyles(facialHairStyleNode)
+
 	headgearNode := parse.GetElementById(node, "cp-headgear")
 	headgearChoices := parse.ExtractHeadgears(headgearNode)
 
 	topNode := parse.GetElementById(node, "cp-tops")
 	topChoices := parse.ExtractTops(topNode)
+
+	// bottomNode := parse.GetElementById(node, "cp-bottoms")
+
+	// footwearNode := parse.GetElementById(node, "cp-footwear")
+
+	// eyewearNode := parse.GetElementById(node, "cp-eyewear")
+
+	// propNode := parse.GetElementById(node, "cp-props")
 
 	hairChoices := []*octocat.Hair{}
 	for _, style := range hairStyleChoices {
@@ -72,6 +83,13 @@ func main() {
 	for _, style := range eyeStyleChoices {
 		for _, color := range eyeColorChoices {
 			eyeChoices = append(eyeChoices, octocat.NewEyes(color, style))
+		}
+	}
+
+	facialHairChoices := []*octocat.FacialHair{}
+	for _, style := range facialHairStyleChoices {
+		for _, color := range facialHairColorChoices {
+			facialHairChoices = append(facialHairChoices, octocat.NewFacialHair(color, style))
 		}
 	}
 
@@ -89,22 +107,11 @@ func main() {
 
 	fmt.Printf("\n%d Octocat hair choices\n", len(hairChoices))
 
-	fmt.Printf("\nOctocat facial hair color choices (%d):\n", len(facialHairColorChoices))
-	utils.PrintColorList(facialHairColorChoices)
+	fmt.Printf("\n%d Octocat facial hair choices\n", len(facialHairChoices))
 
 	fmt.Printf("\nOctocat headgear choices (%d):\n", len(headgearChoices))
 	utils.PrintHeadgearList(headgearChoices)
 
 	fmt.Printf("\nOctocat top choices (%d):\n", len(topChoices))
 	utils.PrintTopList(topChoices)
-
-	// bottomNode := parse.GetElementById(node, "cp-bottoms")
-
-	// footwearNode := parse.GetElementById(node, "cp-footwear")
-
-	// eyewearNode := parse.GetElementById(node, "cp-eyewear")
-
-	// propNode := parse.GetElementById(node, "cp-props")
-
-	// facialHairStyleNode := parse.GetElementById(node, "cp-faceHair")
 }

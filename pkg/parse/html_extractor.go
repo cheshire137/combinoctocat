@@ -86,6 +86,10 @@ func ExtractFacialHairColors(rootNode *html.Node) []*octocat.Color {
 	return extractSingleColorFromChildNodes(rootNode)
 }
 
+func ExtractFacialHairStyles(rootNode *html.Node) []string {
+	return extractImgAlts(rootNode)
+}
+
 func ExtractHairStyles(rootNode *html.Node) []string {
 	return extractImgAlts(rootNode)
 }
