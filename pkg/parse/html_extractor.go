@@ -5,18 +5,18 @@ import (
 	"golang.org/x/net/html"
 )
 
-func ExtractBodies(node *html.Node) []*octocat.Body {
-	bodyNodes := GetElementsByClass(node, "color-swatch")
+func ExtractBodies(rootNode *html.Node) []*octocat.Body {
+	bodyNodes := GetElementsByClass(rootNode, "color-swatch")
 	bodies := make([]*octocat.Body, len(bodyNodes))
 	for i, node := range bodyNodes {
-		colors := ExtractColorsFromNode(node)
+		colors := extractBodyColorsFromNode(node)
 		bodies[i] = octocat.NewBody(colors...)
 	}
 	return bodies
 }
 
-func ExtractEyeColors(node *html.Node) []*octocat.Color {
-	eyeColorNodes := GetElementsByClass(node, "color-swatch")
+func ExtractEyeColors(rootNode *html.Node) []*octocat.Color {
+	eyeColorNodes := GetElementsByClass(rootNode, "color-swatch")
 	colors := make([]*octocat.Color, len(eyeColorNodes))
 	for i, node := range eyeColorNodes {
 		color1, ok := GetAttribute(node, "data-color")
@@ -27,7 +27,33 @@ func ExtractEyeColors(node *html.Node) []*octocat.Color {
 	return colors
 }
 
-func ExtractColorsFromNode(node *html.Node) []*octocat.Color {
+func ExtractFaces(rootNode *html.Node) []*octocat.Face {
+	faceNodes := GetElementsByClass(rootNode, "color-swatch")
+	faces := make([]*octocat.Face, len(faceNodes))
+	for i, node := range faceNodes {
+		var faceColor *octocat.Color
+		var noseColor *octocat.Color
+
+		color1, ok := GetAttribute(node, "data-color")
+		if ok {
+			faceColor = octocat.NewColor(color1)
+		} else {
+			faceColor = nil
+		}
+
+		color2, ok := GetAttribute(node, "data-color-nose")
+		if ok {
+			noseColor = octocat.NewColor(color2)
+		} else {
+			noseColor = nil
+		}
+
+		faces[i] = octocat.NewFace(faceColor, noseColor)
+	}
+	return faces
+}
+
+func extractBodyColorsFromNode(node *html.Node) []*octocat.Color {
 	colors := []*octocat.Color{}
 
 	color1, ok := GetAttribute(node, "data-color")
