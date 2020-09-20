@@ -70,7 +70,8 @@ func main() {
 	footwearNode := parse.GetElementById(node, "cp-footwear")
 	footwearChoices := parse.ExtractFootwears(footwearNode)
 
-	// eyewearNode := parse.GetElementById(node, "cp-eyewear")
+	eyewearNode := parse.GetElementById(node, "cp-eyewear")
+	eyewearChoices := parse.ExtractEyewears(eyewearNode)
 
 	// propNode := parse.GetElementById(node, "cp-props")
 
@@ -113,6 +114,9 @@ func main() {
 
 	fmt.Printf("\nOctocat headgear choices (%d):\n", len(headgearChoices))
 	utils.PrintHeadgearList(headgearChoices)
+
+	fmt.Printf("\nOctocat eyewear choices (%d):\n", len(eyewearChoices))
+	utils.PrintEyewearList(eyewearChoices)
 
 	fmt.Printf("\nOctocat top choices (%d):\n", len(topChoices))
 	utils.PrintTopList(topChoices)

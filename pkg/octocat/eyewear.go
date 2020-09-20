@@ -7,3 +7,7 @@ type Eyewear struct {
 func NewEyewear(style string) *Eyewear {
 	return &Eyewear{Style: style}
 }
+
+func (e *Eyewear) String() string {
+	return e.Style
+}
