@@ -43,6 +43,14 @@ func PrintEyewearList(eyewears []*octocat.Eyewear) {
 	PrintCommaSeparatedList(strList)
 }
 
+func PrintPropList(props []*octocat.Prop) {
+	strList := make([]string, len(props))
+	for i, prop := range props {
+		strList[i] = prop.String()
+	}
+	PrintCommaSeparatedList(strList)
+}
+
 func PrintFootwearList(footwears []*octocat.Footwear) {
 	strList := make([]string, len(footwears))
 	for i, footwear := range footwears {

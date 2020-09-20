@@ -7,3 +7,7 @@ type Prop struct {
 func NewProp(style string) *Prop {
 	return &Prop{Style: style}
 }
+
+func (p *Prop) String() string {
+	return p.Style
+}
