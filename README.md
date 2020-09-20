@@ -36,8 +36,7 @@ Octocat body choices (18):
 - Body: #4F6AB0, #89B7CC, #694E61
 - Body: #5F6196, #C69848, #E1CFC5
 
-Octocat eye color choices (24):
-#503B37, #A4886F, #701B09, #A34F3E, #B3682B, #A4886F, #B0A83E, #5D5913, #5D8D33, #9DC877, #9EA294, #829382, #719694, #5DB088, #54A0B9, #135C38, #0F4456, #717CA0, #5675B8, #716EC1, #9274A1, #42185A, #A64A7D, #5A0630
+456 Octocat eye choices
 
 Octocat face choices (24):
 - Face: #FFC5AF / Nose: #A34F3E
@@ -64,4 +63,26 @@ Octocat face choices (24):
 - Face: #9DA2C9 / Nose: #52467A
 - Face: #B98DBD / Nose: #694E61
 - Face: #A69CB1 / Nose: #495677
+
+961 Octocat hair choices
+
+279 Octocat facial hair choices
+
+Octocat headgear choices (36):
+Hockey helmet, Aussie, Dashiki, Kimono, French hat, Panda head, Lederhosen Hat, Dirndl Flower Crown, Bucket hat, Astronaut Helmet, Sombrero, Chullo, Headphones, Bow, Bandana, Sweatband, Crown, Superhero Crown, Wizard Hat, Snapback, Dad cap, Newsie Cap, Fedora, Jester Hat, Snowboard Helmet, Cowboy Hat, Viking Helmet, Cyclist Helmet, PJ Cap, Firefighter Hard Hat, Bunny suit, Armor Helmet, Hijab, Turban, Head Wrap, scubahead
+
+Octocat eyewear choices (15):
+Scuba Goggles, Oculus Rift, MardiGra Mask, Glasses Round, Glasses Tortoise Shell, Glasses Bifocals, Monocle, Eyepatch, Sports Paint, Sunglasses Heart Shaped, Sunglasses Ray Bans, Sunglasses Alien Eyes, Sunglasses Aviators, Sunglasses Circular, Sunglasses Sporty
+
+Octocat top choices (49):
+French top, Panda suit, Sari, Kimono, Dashiki, Aussie, Chinese Dress, Hockey Jersey, Lederhosen, Dirndl, Football Jersey, Kraftwerk Shirt, Tracksuit, Astronaut, T shirt, Button Up, Dress, Poncho, Retro Dress, cowboyvest, hippieshirt, businesssuit, ski-jacket, cyclistshirt, pjs-shirt, Superherotights, firefighter-jacket, wizard-robe, scuba-wetsuit, dancertights, bunny-suit, armorsuit, tunic, zipuphoodie, buttondownlongshirt, buttondownshortshirt, sportsjersey, githubpride-shirts, tanktop, labcoat, leatherjacket, flannelshirt, minidress, mididress, maxidress, hawaiianshirt, croptopblouse, barbarianvest, overalls
+
+Octocat prop choices (37):
+Baguette, Panda, Hockey Stick, Football, Githawk, Semmle, Kimono, Aussie, Club Mate Bottle, Currywurst, Doner Kebap, Sponsor Heart, Black Hole, Lasso, Laptop, Tea Cup Mug, Smartphone, Snowboard, Newspaper, Kryptonite, Wizard Wand, Treasure, Sword, Ruby Gem, Microphone, Paintbrush, FishingRod, Game Controller, Prosthetic Hand, Books, Skateboard, Soccer Ball, Magnifying Glass, Beachball, Ship It Squirrel, Guitar, Boba Cup
+
+Octocat bottom choices (32):
+French bottoms, Panda bottoms, Hockey bottoms, Lederhosen, Dirndl, German Football Shorts, Kraftwerk Pants, Adidas Tracksuit, Astronaut pants, Yoga pants, Shorts, Jeans, Ripped Jeans, Cuffed Jeans, Bell Bottoms, Suit Pants, Mini Skirt, Midi Skirt, Maxi Skirt, Snow Pants, Cyclist Shorts, PJ Pants, Superhero Tights, Firefighter Pants, Scuba Pants, Dancer Tights, Bunny Suit, Armor Suit, Swim Trunks, Overalls, Kilt, Soccer Shorts
+
+Octocat footwear choices (30):
+French shoes, Panda shoes, Kimono, Hockey, Lederhosen, Dirndl, Cleats, Kraftwerk Shoes, Tracksuit, Astronaut, cowboyboots, platformshoes, highheels, mendressshoes, snow-boots, cyclistshoes, pj-slippers, superheroboots, firefighter-boots, wizard-sandals, scuba-flippers, balletshoes, bunnysuit, armorsuit-boots, combatboots, clogs, cleats, hightopsneakers, athleticshoes, converseshoes
 ```
