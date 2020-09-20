@@ -1,9 +1,17 @@
 package parse
 
-import "golang.org/x/net/html"
+import (
+	"regexp"
+
+	"golang.org/x/net/html"
+)
 
 func GetElementById(n *html.Node, id string) *html.Node {
-	return traverse(n, id)
+	return traverseById(n, id)
+}
+
+func GetElementsByClass(n *html.Node, className string) []*html.Node {
+	return traverseByClass(n, className)
 }
 
 func GetAttribute(n *html.Node, key string) (string, bool) {
@@ -18,20 +26,55 @@ func GetAttribute(n *html.Node, key string) (string, bool) {
 func checkId(n *html.Node, id string) bool {
 	if n.Type == html.ElementNode {
 		s, ok := GetAttribute(n, "id")
-		if ok && s == id {
-			return true
+		if ok {
+			return s == id
 		}
 	}
 	return false
 }
 
-func traverse(n *html.Node, id string) *html.Node {
+func checkClass(n *html.Node, className string) bool {
+	if n.Type == html.ElementNode {
+		s, ok := GetAttribute(n, "class")
+		if ok {
+			classNames := regexp.MustCompile(`\s+`).Split(s, -1)
+			_, includesClass := findStr(classNames, className)
+			return includesClass
+		}
+	}
+	return false
+}
+
+func findStr(haystack []string, needle string) (int, bool) {
+	for i, item := range haystack {
+		if item == needle {
+			return i, true
+		}
+	}
+	return -1, false
+}
+
+func traverseByClass(n *html.Node, className string) []*html.Node {
+	matches := []*html.Node{}
+
+	if checkClass(n, className) {
+		matches = append(matches, n)
+	}
+
+	for c := n.FirstChild; c != nil; c = c.NextSibling {
+		matches = append(matches, traverseByClass(c, className)...)
+	}
+
+	return matches
+}
+
+func traverseById(n *html.Node, id string) *html.Node {
 	if checkId(n, id) {
 		return n
 	}
 
 	for c := n.FirstChild; c != nil; c = c.NextSibling {
-		result := traverse(c, id)
+		result := traverseById(c, id)
 		if result != nil {
 			return result
 		}

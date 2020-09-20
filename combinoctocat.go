@@ -33,27 +33,28 @@ func main() {
 	}
 
 	bodyColorNode := parse.GetElementById(node, "body-color")
+	parse.ExtractBodies(bodyColorNode)
 
-	eyeStyleNode := parse.GetElementById(node, "cp-eyes")
-	eyeColorNode := parse.GetElementById(node, "eye-color")
+	// eyeStyleNode := parse.GetElementById(node, "cp-eyes")
+	// eyeColorNode := parse.GetElementById(node, "eye-color")
 
-	faceColorNode := parse.GetElementById(node, "face-color")
+	// faceColorNode := parse.GetElementById(node, "face-color")
 
-	hairStyleNode := parse.GetElementById(node, "cp-hair")
-	hairColorNode := parse.GetElementById(node, "hair-color")
+	// hairStyleNode := parse.GetElementById(node, "cp-hair")
+	// hairColorNode := parse.GetElementById(node, "hair-color")
 
-	headgearNode := parse.GetElementById(node, "cp-headgear")
+	// headgearNode := parse.GetElementById(node, "cp-headgear")
 
-	topNode := parse.GetElementById(node, "cp-tops")
+	// topNode := parse.GetElementById(node, "cp-tops")
 
-	bottomNode := parse.GetElementById(node, "cp-bottoms")
+	// bottomNode := parse.GetElementById(node, "cp-bottoms")
 
-	footwearNode := parse.GetElementById(node, "cp-footwear")
+	// footwearNode := parse.GetElementById(node, "cp-footwear")
 
-	eyewearNode := parse.GetElementById(node, "cp-eyewear")
+	// eyewearNode := parse.GetElementById(node, "cp-eyewear")
 
-	propNode := parse.GetElementById(node, "cp-props")
+	// propNode := parse.GetElementById(node, "cp-props")
 
-	facialHairStyleNode := parse.GetElementById(node, "cp-faceHair")
-	facialHairColorNode := parse.GetElementById(node, "facehair-color")
+	// facialHairStyleNode := parse.GetElementById(node, "cp-faceHair")
+	// facialHairColorNode := parse.GetElementById(node, "facehair-color")
 }
