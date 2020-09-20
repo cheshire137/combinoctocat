@@ -3,6 +3,7 @@ package parse
 import (
 	"regexp"
 
+	"github.com/cheshire137/combinoctocat/pkg/utils"
 	"golang.org/x/net/html"
 )
 
@@ -38,20 +39,11 @@ func checkClass(n *html.Node, className string) bool {
 		s, ok := GetAttribute(n, "class")
 		if ok {
 			classNames := regexp.MustCompile(`\s+`).Split(s, -1)
-			_, includesClass := findStr(classNames, className)
+			_, includesClass := utils.FindStr(classNames, className)
 			return includesClass
 		}
 	}
 	return false
-}
-
-func findStr(haystack []string, needle string) (int, bool) {
-	for i, item := range haystack {
-		if item == needle {
-			return i, true
-		}
-	}
-	return -1, false
 }
 
 func traverseByClass(n *html.Node, className string) []*html.Node {

@@ -7,6 +7,7 @@ import (
 
 	"github.com/cheshire137/combinoctocat/pkg/options"
 	"github.com/cheshire137/combinoctocat/pkg/parse"
+	"github.com/cheshire137/combinoctocat/pkg/utils"
 	"golang.org/x/net/html"
 )
 
@@ -59,15 +60,7 @@ func main() {
 	}
 
 	fmt.Printf("\nOctocat eye color choices (%d):\n", totalEyeColorChoices)
-	lastEyeColorIndex := totalEyeColorChoices - 1
-	for i, color := range eyeColorChoices {
-		fmt.Print(color.String())
-		if i < lastEyeColorIndex {
-			fmt.Print(", ")
-		} else {
-			fmt.Println()
-		}
-	}
+	utils.PrintColorList(eyeColorChoices)
 
 	fmt.Printf("\nOctocat face choices (%d):\n", totalFaceChoices)
 	for _, face := range faceChoices {
@@ -75,26 +68,10 @@ func main() {
 	}
 
 	fmt.Printf("\nOctocat hair color choices (%d):\n", totalHairColorChoices)
-	lastHairColorIndex := totalHairColorChoices - 1
-	for i, color := range hairColorChoices {
-		fmt.Print(color.String())
-		if i < lastHairColorIndex {
-			fmt.Print(", ")
-		} else {
-			fmt.Println()
-		}
-	}
+	utils.PrintColorList(hairColorChoices)
 
 	fmt.Printf("\nOctocat facial hair color choices (%d):\n", totalFacialHairColorChoices)
-	lastFacialHairColorIndex := totalFacialHairColorChoices - 1
-	for i, color := range facialHairColorChoices {
-		fmt.Print(color.String())
-		if i < lastFacialHairColorIndex {
-			fmt.Print(", ")
-		} else {
-			fmt.Println()
-		}
-	}
+	utils.PrintColorList(facialHairColorChoices)
 
 	// hairStyleNode := parse.GetElementById(node, "cp-hair")
 
