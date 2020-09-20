@@ -1,6 +1,8 @@
 package parse
 
 import (
+	"strings"
+
 	"github.com/cheshire137/combinoctocat/pkg/octocat"
 	"golang.org/x/net/html"
 )
@@ -21,6 +23,33 @@ func ExtractEyeColors(rootNode *html.Node) []*octocat.Color {
 
 func ExtractEyeStyles(rootNode *html.Node) []string {
 	return extractImgAlts(rootNode)
+}
+
+func ExtractTops(rootNode *html.Node) []*octocat.Top {
+	imgAlts := extractImgAlts(rootNode)
+	imgSrcs := extractImgSrcs(rootNode)
+	tops := make([]*octocat.Top, len(imgAlts))
+	for i, imgAlt := range imgAlts {
+		style := extractTopStyle(imgAlt, imgSrcs[i])
+		tops[i] = octocat.NewTop(style)
+	}
+	return tops
+}
+
+func extractTopStyle(imgAlt string, imgSrc string) string {
+	if len(imgAlt) > 0 {
+		return imgAlt
+	}
+
+	srcParts := strings.Split(imgSrc, "/")
+	totalSrcParts := len(srcParts)
+	if totalSrcParts > 0 {
+		fileName := srcParts[totalSrcParts-1]
+		fileNameWithoutExtension := strings.TrimSuffix(fileName, ".svg")
+		return strings.TrimPrefix(fileNameWithoutExtension, "tops-")
+	}
+
+	return imgSrc
 }
 
 func ExtractFaces(rootNode *html.Node) []*octocat.Face {
@@ -80,6 +109,18 @@ func extractImgAlts(rootNode *html.Node) []string {
 		}
 	}
 	return imgAltAttributes
+}
+
+func extractImgSrcs(rootNode *html.Node) []string {
+	previewNodes := GetElementsByClass(rootNode, "preview")
+	imgSrcAttributes := make([]string, len(previewNodes))
+	for i, node := range previewNodes {
+		srcAttribute, ok := GetAttribute(node, "src")
+		if ok {
+			imgSrcAttributes[i] = srcAttribute
+		}
+	}
+	return imgSrcAttributes
 }
 
 func extractSingleColorFromChildNodes(rootNode *html.Node) []*octocat.Color {

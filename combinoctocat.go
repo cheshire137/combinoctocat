@@ -58,6 +58,9 @@ func main() {
 	headgearNode := parse.GetElementById(node, "cp-headgear")
 	headgearChoices := parse.ExtractHeadgears(headgearNode)
 
+	topNode := parse.GetElementById(node, "cp-tops")
+	topChoices := parse.ExtractTops(topNode)
+
 	hairChoices := []*octocat.Hair{}
 	for _, style := range hairStyleChoices {
 		for _, color := range hairColorChoices {
@@ -92,7 +95,8 @@ func main() {
 	fmt.Printf("\nOctocat headgear choices (%d):\n", len(headgearChoices))
 	utils.PrintHeadgearList(headgearChoices)
 
-	// topNode := parse.GetElementById(node, "cp-tops")
+	fmt.Printf("\nOctocat top choices (%d):\n", len(topChoices))
+	utils.PrintTopList(topChoices)
 
 	// bottomNode := parse.GetElementById(node, "cp-bottoms")
 

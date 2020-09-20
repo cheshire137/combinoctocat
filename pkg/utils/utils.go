@@ -35,6 +35,14 @@ func PrintHeadgearList(headgears []*octocat.Headgear) {
 	PrintCommaSeparatedList(strList)
 }
 
+func PrintTopList(tops []*octocat.Top) {
+	strList := make([]string, len(tops))
+	for i, top := range tops {
+		strList[i] = top.String()
+	}
+	PrintCommaSeparatedList(strList)
+}
+
 func FindStr(haystack []string, needle string) (int, bool) {
 	for i, item := range haystack {
 		if item == needle {
