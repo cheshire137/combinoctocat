@@ -3,15 +3,15 @@ package octocat
 import "strings"
 
 type Octocat struct {
-	Body        *Body
-	Face        *Face
-	Eyes        *Eyes
-	Mouth       *Mouth
-	Hair        *Hair
-	FacialHair  *FacialHair
-	Outfit      *Outfit
-	Accessories []*Accessory
-	Prop        *Prop
+	Body         *Body
+	Face         *Face
+	Eyes         *Eyes
+	Mouth        *Mouth
+	Hair         *Hair
+	FacialHair   *FacialHair
+	Outfit       *Outfit
+	AccessorySet *AccessorySet
+	Prop         *Prop
 }
 
 func NewOctocat(body *Body, face *Face, eyes *Eyes, mouth *Mouth) *Octocat {
@@ -47,13 +47,7 @@ func (o *Octocat) String() string {
 		sb.WriteString(o.Prop.String())
 	}
 
-	if len(o.Accessories) > 0 {
-		accessoryList := make([]string, len(o.Accessories))
-		for i, accessory := range o.Accessories {
-			accessoryList[i] = accessory.String()
-		}
-		sb.WriteString(strings.Join(accessoryList, ", "))
-	}
+	sb.WriteString(o.AccessorySet.String())
 
 	return sb.String()
 }
