@@ -30,7 +30,7 @@ func ExtractTops(rootNode *html.Node) []*octocat.Top {
 	imgSrcs := extractImgSrcs(rootNode)
 	tops := make([]*octocat.Top, len(imgAlts))
 	for i, imgAlt := range imgAlts {
-		style := extractTopStyle(imgAlt, imgSrcs[i])
+		style := getNameFromImgAltAndSrc(imgAlt, imgSrcs[i], "tops-")
 		tops[i] = octocat.NewTop(style)
 	}
 	return tops
@@ -96,8 +96,15 @@ func ExtractHeadgears(rootNode *html.Node) []*octocat.Headgear {
 	return headgears
 }
 
-func extractTopStyle(imgAlt string, imgSrc string) string {
-	return getNameFromImgAltAndSrc(imgAlt, imgSrc, "tops-")
+func ExtractFootwears(rootNode *html.Node) []*octocat.Footwear {
+	imgAlts := extractImgAlts(rootNode)
+	imgSrcs := extractImgSrcs(rootNode)
+	footwears := make([]*octocat.Footwear, len(imgAlts))
+	for i, imgAlt := range imgAlts {
+		style := getNameFromImgAltAndSrc(imgAlt, imgSrcs[i], "footwear-")
+		footwears[i] = octocat.NewFootwear(style)
+	}
+	return footwears
 }
 
 func getNameFromImgAltAndSrc(imgAlt string, imgSrc string, prefix string) string {

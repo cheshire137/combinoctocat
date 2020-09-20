@@ -35,6 +35,14 @@ func PrintHeadgearList(headgears []*octocat.Headgear) {
 	PrintCommaSeparatedList(strList)
 }
 
+func PrintFootwearList(footwears []*octocat.Footwear) {
+	strList := make([]string, len(footwears))
+	for i, footwear := range footwears {
+		strList[i] = footwear.String()
+	}
+	PrintCommaSeparatedList(strList)
+}
+
 func PrintTopList(tops []*octocat.Top) {
 	strList := make([]string, len(tops))
 	for i, top := range tops {

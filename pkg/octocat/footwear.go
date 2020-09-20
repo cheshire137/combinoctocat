@@ -7,3 +7,7 @@ type Footwear struct {
 func NewFootwear(style string) *Footwear {
 	return &Footwear{Style: style}
 }
+
+func (f *Footwear) String() string {
+	return f.Style
+}
