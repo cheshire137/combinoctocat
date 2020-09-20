@@ -61,6 +61,9 @@ func main() {
 	headgearNode := parse.GetElementById(node, "cp-headgear")
 	headgearChoices := parse.ExtractHeadgears(headgearNode)
 
+	mouthNode := parse.GetElementById(node, "cp-mouths")
+	mouthChoices := parse.ExtractMouths(mouthNode)
+
 	topNode := parse.GetElementById(node, "cp-tops")
 	topChoices := parse.ExtractTops(topNode)
 
@@ -97,6 +100,22 @@ func main() {
 		}
 	}
 
+	// octocats := []*octocat.Octocat{}
+	// for _, body := range bodyChoices {
+	// 	for _, top := range topChoices {
+	// 		for _, bottom := range bottomChoices {
+	// 			for _, prop := range propChoices {
+	// 				for _, eyes := range eyeChoices {
+	// 					for _, facialHair := range facialHairChoices {
+	// 						for _, hair := range hairChoices {
+	// 						}
+	// 					}
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }
+
 	fmt.Printf("Octocat body choices (%d):\n", len(bodyChoices))
 	for _, body := range bodyChoices {
 		fmt.Println("- " + body.String())
@@ -118,6 +137,9 @@ func main() {
 
 	fmt.Printf("\nOctocat eyewear choices (%d):\n", len(eyewearChoices))
 	utils.PrintEyewearList(eyewearChoices)
+
+	fmt.Printf("\nOctocat mouth choices (%d):\n", len(mouthChoices))
+	utils.PrintMouthList(mouthChoices)
 
 	fmt.Printf("\nOctocat top choices (%d):\n", len(topChoices))
 	utils.PrintTopList(topChoices)

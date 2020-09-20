@@ -34,6 +34,15 @@ func ExtractEyewears(rootNode *html.Node) []*octocat.Eyewear {
 	return eyeWears
 }
 
+func ExtractMouths(rootNode *html.Node) []*octocat.Mouth {
+	styles := extractImgAlts(rootNode)
+	mouths := make([]*octocat.Mouth, len(styles))
+	for i, style := range styles {
+		mouths[i] = octocat.NewMouth(style)
+	}
+	return mouths
+}
+
 func ExtractProps(rootNode *html.Node) []*octocat.Prop {
 	styles := extractImgAlts(rootNode)
 	props := make([]*octocat.Prop, len(styles))

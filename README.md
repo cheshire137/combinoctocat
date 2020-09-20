@@ -74,6 +74,9 @@ Hockey helmet, Aussie, Dashiki, Kimono, French hat, Panda head, Lederhosen Hat, 
 Octocat eyewear choices (15):
 Scuba Goggles, Oculus Rift, MardiGra Mask, Glasses Round, Glasses Tortoise Shell, Glasses Bifocals, Monocle, Eyepatch, Sports Paint, Sunglasses Heart Shaped, Sunglasses Ray Bans, Sunglasses Alien Eyes, Sunglasses Aviators, Sunglasses Circular, Sunglasses Sporty
 
+Octocat mouth choices (18):
+Neutral, Canines, Underbite, LipstickSmile, Goofy, Happy Closed, Happy Open, Sad, Confused, Excited Open, Excited Closed, Express, Chillin, Angry, Heart Eyes, Starstruck, Zany, Winking
+
 Octocat top choices (49):
 French top, Panda suit, Sari, Kimono, Dashiki, Aussie, Chinese Dress, Hockey Jersey, Lederhosen, Dirndl, Football Jersey, Kraftwerk Shirt, Tracksuit, Astronaut, T shirt, Button Up, Dress, Poncho, Retro Dress, cowboyvest, hippieshirt, businesssuit, ski-jacket, cyclistshirt, pjs-shirt, Superherotights, firefighter-jacket, wizard-robe, scuba-wetsuit, dancertights, bunny-suit, armorsuit, tunic, zipuphoodie, buttondownlongshirt, buttondownshortshirt, sportsjersey, githubpride-shirts, tanktop, labcoat, leatherjacket, flannelshirt, minidress, mididress, maxidress, hawaiianshirt, croptopblouse, barbarianvest, overalls
 

@@ -7,3 +7,7 @@ type Mouth struct {
 func NewMouth(style string) *Mouth {
 	return &Mouth{Style: style}
 }
+
+func (m *Mouth) String() string {
+	return m.Style
+}
