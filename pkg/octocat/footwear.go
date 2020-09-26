@@ -14,7 +14,7 @@ func NewFootwear(style string) *Footwear {
 
 func (f *Footwear) String() string {
 	if len(f.Style) > 0 {
-		return "Footwear: " + f.Style
+		return f.Style
 	}
 	return "no footwear"
 }

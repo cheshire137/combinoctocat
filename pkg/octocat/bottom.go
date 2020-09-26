@@ -14,7 +14,7 @@ func NewBottom(style string) *Bottom {
 
 func (b *Bottom) String() string {
 	if len(b.Style) > 0 {
-		return "Bottom: " + b.Style
+		return b.Style
 	}
 	return "no bottom"
 }

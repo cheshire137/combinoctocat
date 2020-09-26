@@ -14,7 +14,7 @@ func NewTop(style string) *Top {
 
 func (t *Top) String() string {
 	if len(t.Style) > 0 {
-		return "Top: " + t.Style
+		return t.Style
 	}
 	return "no top"
 }

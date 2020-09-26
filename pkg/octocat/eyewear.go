@@ -14,7 +14,7 @@ func NewEyewear(style string) *Eyewear {
 
 func (e *Eyewear) String() string {
 	if len(e.Style) > 0 {
-		return "Eyewear: " + e.Style
+		return e.Style
 	}
 	return "no eyewear"
 }

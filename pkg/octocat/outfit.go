@@ -40,7 +40,7 @@ func (o *Outfit) String() string {
 	if o.Eyewear != nil {
 		parts = append(parts, o.Eyewear.String())
 	}
-	return strings.Join(parts, " / ")
+	return "Outfit: " + strings.Join(parts, " / ")
 }
 
 func GenerateOutfit(topChoices []*Top, bottomChoices []*Bottom, footwearChoices []*Footwear, headgearChoices []*Headgear, eyewearChoices []*Eyewear) *Outfit {

@@ -14,7 +14,7 @@ func NewHeadgear(style string) *Headgear {
 
 func (h *Headgear) String() string {
 	if len(h.Style) > 0 {
-		return "Headgear: " + h.Style
+		return h.Style
 	}
 	return "no headgear"
 }
