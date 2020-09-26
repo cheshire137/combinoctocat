@@ -138,7 +138,7 @@ func main() {
 	fmt.Printf("- %d colors\n", len(hairColorChoices))
 	fmt.Printf("- %d styles\n", len(hairStyleChoices))
 
-	fmt.Printf("\n%d Octocat facial hair choices (including none)\n", len(facialHairChoices))
+	fmt.Printf("\n%d facial hair choices (including none)\n", len(facialHairChoices))
 	fmt.Printf("- %d colors\n", len(facialHairColorChoices))
 	fmt.Printf("- %d styles\n", len(facialHairStyleChoices))
 
@@ -155,4 +155,9 @@ func main() {
 	printer.Print(totalPossibleOutfits)
 	fmt.Printf(" outfit choices (%d tops, %d bottoms, %d headgears, %d eyewears, %d footgears)\n",
 		len(topChoices), len(bottomChoices), len(headgearChoices), len(eyewearChoices), len(footwearChoices))
+
+	totalOctocats := len(bodyChoices) * len(eyeChoices) * len(faceChoices) * len(hairChoices) * len(facialHairChoices) * len(mouthChoices) * len(propChoices) * len(accessorySets) * totalPossibleOutfits
+	fmt.Print("\n")
+	printer.Print(totalOctocats)
+	fmt.Println(" Octocats")
 }
