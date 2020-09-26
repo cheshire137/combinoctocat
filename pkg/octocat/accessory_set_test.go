@@ -1,6 +1,7 @@
 package octocat
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -15,14 +16,15 @@ func TestGetAccessorySets(t *testing.T) {
 	result := GetAccessorySets(accessories)
 
 	assert.Equal(t, 8, len(result))
+	fmt.Println(result)
 	assertIncludesSet(t, result, "no accessories")
-	assertIncludesSet(t, result, "Accessories: hat")
-	assertIncludesSet(t, result, "Accessories: coat")
-	assertIncludesSet(t, result, "Accessories: flower")
-	assertIncludesSet(t, result, "Accessories: hat, coat")
-	assertIncludesSet(t, result, "Accessories: hat, coat, flower")
-	assertIncludesSet(t, result, "Accessories: hat, flower")
-	assertIncludesSet(t, result, "Accessories: coat, flower")
+	assertIncludesSet(t, result, "Accessories (1): hat")
+	assertIncludesSet(t, result, "Accessories (1): coat")
+	assertIncludesSet(t, result, "Accessories (1): flower")
+	assertIncludesSet(t, result, "Accessories (2): coat, hat")
+	assertIncludesSet(t, result, "Accessories (3): coat, flower, hat")
+	assertIncludesSet(t, result, "Accessories (2): flower, hat")
+	assertIncludesSet(t, result, "Accessories (2): coat, flower")
 }
 
 func assertIncludesSet(t *testing.T, haystack []*AccessorySet, needle string) {

@@ -1,6 +1,8 @@
 package octocat
 
 import (
+	"fmt"
+	"sort"
 	"strings"
 
 	set "github.com/deckarep/golang-set"
@@ -19,14 +21,16 @@ func NewAccessorySet(accessories ...*Accessory) *AccessorySet {
 }
 
 func (s *AccessorySet) String() string {
-	if len(s.Accessories) < 1 {
+	totalAccessories := len(s.Accessories)
+	if totalAccessories < 1 {
 		return "no accessories"
 	}
-	strList := make([]string, len(s.Accessories))
+	strList := make([]string, totalAccessories)
 	for i, accessory := range s.Accessories {
 		strList[i] = accessory.String()
 	}
-	return "Accessories: " + strings.Join(strList, ", ")
+	sort.Strings(strList)
+	return fmt.Sprintf("Accessories (%d): ", totalAccessories) + strings.Join(strList, ", ")
 }
 
 func GetAccessorySets(accessoryChoices []*Accessory) []*AccessorySet {
