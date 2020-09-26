@@ -9,5 +9,5 @@ func NewProp(style string) *Prop {
 }
 
 func (p *Prop) String() string {
-	return p.Style
+	return "Prop: " + p.Style
 }

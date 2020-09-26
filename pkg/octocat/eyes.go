@@ -13,7 +13,9 @@ func NewEyes(color *Color, style string) *Eyes {
 
 func (e *Eyes) String() string {
 	var sb strings.Builder
+	sb.WriteString("Eyes: ")
 	sb.WriteString(e.Style)
+	sb.WriteString(" / ")
 	sb.WriteString(e.Color.String())
 	return sb.String()
 }

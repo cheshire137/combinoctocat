@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"math/rand"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/cheshire137/combinoctocat/pkg/octocat"
@@ -110,24 +111,8 @@ func main() {
 		}
 	}
 
-	totalPossibleOutfits := uint64(len(topChoices) * len(bottomChoices) * len(footwearChoices) * len(headgearChoices) * len(eyewearChoices))
-
-	// octocats := []*octocat.Octocat{}
-	// for _, body := range bodyChoices {
-	// 	for _, prop := range propChoices {
-	// 		for _, eyes := range eyeChoices {
-	// 			for _, facialHair := range facialHairChoices {
-	// 				for _, hair := range hairChoices {
-	// 					for _, mouth := range mouthChoices {
-	// 						for _, face := range faceChoices {
-	// 							octocat := octocat.NewOctocat(body, face, eyes, mouth)
-	// 						}
-	// 					}
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// }
+	outfitGenerator := octocat.NewOutfitGenerator(topChoices, bottomChoices, footwearChoices, headgearChoices, eyewearChoices)
+	totalPossibleOutfits := outfitGenerator.TotalPossible()
 
 	fmt.Println("Octocat customization options:")
 
@@ -139,6 +124,8 @@ func main() {
 	totalMouths := uint64(len(mouthChoices))
 	totalProps := uint64(len(propChoices))
 	totalAccessoryCombos := uint64(len(accessorySets))
+
+	octocatGenerator := octocat.NewOctocatGenerator(bodyChoices, faceChoices, eyeChoices, mouthChoices, hairChoices, facialHairChoices, accessorySets, propChoices, outfitGenerator)
 
 	printer := message.NewPrinter(message.MatchLanguage("en"))
 
@@ -175,4 +162,24 @@ func main() {
 	fmt.Println(" possible Octocats")
 
 	fmt.Println("\n" + utils.GetPositiveEnglishNumberName(totalOctocats))
+
+	for choice := getUserAction(); choice != "q"; choice = getUserAction() {
+		if choice == "g" {
+			octocat := octocatGenerator.Generate()
+			fmt.Println("")
+			fmt.Println(octocat.String())
+		}
+	}
+
+	fmt.Println("Goodbye")
+	os.Exit(0)
+}
+
+func getUserAction() string {
+	fmt.Println("\nWhat would you like to do?")
+	fmt.Println("[g]enerate an Octocat")
+	fmt.Println("[q]uit")
+	var choice string
+	fmt.Scanln(&choice)
+	return strings.ToLower(strings.TrimSpace(choice))
 }

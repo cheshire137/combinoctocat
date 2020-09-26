@@ -9,5 +9,5 @@ func NewMouth(style string) *Mouth {
 }
 
 func (m *Mouth) String() string {
-	return m.Style
+	return "Mouth: " + m.Style
 }
