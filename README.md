@@ -44,3 +44,9 @@ Octocat customization options:
 
 three quintrillion eight hundred sixty-nine quadrillion eight hundred three trillion seven hundred seven billion three hundred sixty-five million three hundred twenty-six thousand eight hundred forty-eight
 ```
+
+## How to test
+
+```sh
+make test
+```
