@@ -41,4 +41,6 @@ Octocat customization options:
 - 31 footgears
 
 3,869,803,707,365,326,848 possible Octocats
+
+three quintrillion eight hundred sixty-nine quadrillion eight hundred three trillion seven hundred seven billion three hundred sixty-five million three hundred twenty-six thousand eight hundred forty-eight
 ```

@@ -10,6 +10,7 @@ import (
 	"github.com/cheshire137/combinoctocat/pkg/octocat"
 	"github.com/cheshire137/combinoctocat/pkg/options"
 	"github.com/cheshire137/combinoctocat/pkg/parse"
+	"github.com/cheshire137/combinoctocat/pkg/utils"
 	"golang.org/x/net/html"
 	"golang.org/x/text/message"
 )
@@ -109,7 +110,7 @@ func main() {
 		}
 	}
 
-	totalPossibleOutfits := len(topChoices) * len(bottomChoices) * len(footwearChoices) * len(headgearChoices) * len(eyewearChoices)
+	totalPossibleOutfits := uint64(len(topChoices) * len(bottomChoices) * len(footwearChoices) * len(headgearChoices) * len(eyewearChoices))
 
 	// octocats := []*octocat.Octocat{}
 	// for _, body := range bodyChoices {
@@ -130,14 +131,14 @@ func main() {
 
 	fmt.Println("Octocat customization options:")
 
-	totalBodies := len(bodyChoices)
-	totalEyes := len(eyeChoices)
-	totalFaces := len(faceChoices)
-	totalHairs := len(hairChoices)
-	totalFacialHairs := len(facialHairChoices)
-	totalMouths := len(mouthChoices)
-	totalProps := len(propChoices)
-	totalAccessoryCombos := len(accessorySets)
+	totalBodies := uint64(len(bodyChoices))
+	totalEyes := uint64(len(eyeChoices))
+	totalFaces := uint64(len(faceChoices))
+	totalHairs := uint64(len(hairChoices))
+	totalFacialHairs := uint64(len(facialHairChoices))
+	totalMouths := uint64(len(mouthChoices))
+	totalProps := uint64(len(propChoices))
+	totalAccessoryCombos := uint64(len(accessorySets))
 
 	printer := message.NewPrinter(message.MatchLanguage("en"))
 
@@ -167,8 +168,11 @@ func main() {
 	fmt.Printf("- %d eyewears\n", len(eyewearChoices))
 	fmt.Printf("- %d footgears\n", len(footwearChoices))
 
-	totalOctocats := totalBodies * totalEyes * totalFaces * totalHairs * totalFacialHairs * totalMouths * totalProps * totalAccessoryCombos * totalPossibleOutfits
+	var totalOctocats uint64
+	totalOctocats = totalBodies * totalEyes * totalFaces * totalHairs * totalFacialHairs * totalMouths * totalProps * totalAccessoryCombos * totalPossibleOutfits
 	fmt.Print("\n")
 	printer.Print(totalOctocats)
 	fmt.Println(" possible Octocats")
+
+	fmt.Println("\n" + utils.GetPositiveEnglishNumberName(totalOctocats))
 }
