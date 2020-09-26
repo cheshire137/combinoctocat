@@ -130,34 +130,45 @@ func main() {
 
 	fmt.Println("Octocat customization options:")
 
-	fmt.Printf("\n%d body choices\n", len(bodyChoices))
-	fmt.Printf("%d eye choices\n", len(eyeChoices))
-	fmt.Printf("%d face choices\n", len(faceChoices))
-
-	fmt.Printf("\n%d hair choices (including none)\n", len(hairChoices))
-	fmt.Printf("- %d colors\n", len(hairColorChoices))
-	fmt.Printf("- %d styles\n", len(hairStyleChoices))
-
-	fmt.Printf("\n%d facial hair choices (including none)\n", len(facialHairChoices))
-	fmt.Printf("- %d colors\n", len(facialHairColorChoices))
-	fmt.Printf("- %d styles\n", len(facialHairStyleChoices))
-
-	fmt.Printf("\n%d mouth choices\n", len(mouthChoices))
-	fmt.Printf("%d prop choices\n", len(propChoices))
+	totalBodies := len(bodyChoices)
+	totalEyes := len(eyeChoices)
+	totalFaces := len(faceChoices)
+	totalHairs := len(hairChoices)
+	totalFacialHairs := len(facialHairChoices)
+	totalMouths := len(mouthChoices)
+	totalProps := len(propChoices)
+	totalAccessoryCombos := len(accessorySets)
 
 	printer := message.NewPrinter(message.MatchLanguage("en"))
 
 	fmt.Print("\n")
-	printer.Print(len(accessorySets))
+	fmt.Printf("%d body choices\n", totalBodies)
+	fmt.Printf("%d eye choices\n", totalEyes)
+	fmt.Printf("%d face choices\n", totalFaces)
+	fmt.Printf("%d mouth choices\n", totalMouths)
+	fmt.Printf("%d prop choices\n", totalProps)
+	printer.Print(totalAccessoryCombos)
 	fmt.Println(" accessory combinations")
+
+	fmt.Printf("\n%d hair choices (including none)\n", totalHairs)
+	fmt.Printf("- %d colors\n", len(hairColorChoices))
+	fmt.Printf("- %d styles\n", len(hairStyleChoices))
+
+	fmt.Printf("\n%d facial hair choices (including none)\n", totalFacialHairs)
+	fmt.Printf("- %d colors\n", len(facialHairColorChoices))
+	fmt.Printf("- %d styles\n", len(facialHairStyleChoices))
 
 	fmt.Print("\n")
 	printer.Print(totalPossibleOutfits)
-	fmt.Printf(" outfit choices (%d tops, %d bottoms, %d headgears, %d eyewears, %d footgears)\n",
-		len(topChoices), len(bottomChoices), len(headgearChoices), len(eyewearChoices), len(footwearChoices))
+	fmt.Println(" outfit choices")
+	fmt.Printf("- %d tops\n", len(topChoices))
+	fmt.Printf("- %d bottoms\n", len(bottomChoices))
+	fmt.Printf("- %d headgears\n", len(headgearChoices))
+	fmt.Printf("- %d eyewears\n", len(eyewearChoices))
+	fmt.Printf("- %d footgears\n", len(footwearChoices))
 
-	totalOctocats := len(bodyChoices) * len(eyeChoices) * len(faceChoices) * len(hairChoices) * len(facialHairChoices) * len(mouthChoices) * len(propChoices) * len(accessorySets) * totalPossibleOutfits
+	totalOctocats := totalBodies * totalEyes * totalFaces * totalHairs * totalFacialHairs * totalMouths * totalProps * totalAccessoryCombos * totalPossibleOutfits
 	fmt.Print("\n")
 	printer.Print(totalOctocats)
-	fmt.Println(" Octocats")
+	fmt.Println(" possible Octocats")
 }

@@ -21,6 +21,9 @@ Octocat customization options:
 18 body choices
 456 eye choices
 24 face choices
+18 mouth choices
+37 prop choices
+262,144 accessory combinations
 
 962 hair choices (including none)
 - 31 colors
@@ -30,12 +33,12 @@ Octocat customization options:
 - 31 colors
 - 9 styles
 
-18 mouth choices
-37 prop choices
+30,280,800 outfit choices
+- 50 tops
+- 33 bottoms
+- 37 headgears
+- 16 eyewears
+- 31 footgears
 
-262,144 accessory combinations
-
-30,280,800 outfit choices (50 tops, 33 bottoms, 37 headgears, 16 eyewears, 31 footgears)
-
-3,869,803,707,365,326,848 Octocats
+3,869,803,707,365,326,848 possible Octocats
 ```
